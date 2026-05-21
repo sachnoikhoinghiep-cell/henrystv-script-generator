@@ -233,8 +233,8 @@
     .btn-save-confirm:hover{background:#9ad066}
     .btn-save-cancel{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.5rem 1rem;font-family:inherit;font-size:.85rem;cursor:pointer;border-radius:2px;transition:all .2s}
     .btn-save-cancel:hover{border-color:var(--accent2);color:var(--accent)}
-    .save-toast{display:none;font-size:.75rem;color:var(--mode1acc);text-align:right;margin-top:.4rem;font-style:italic}
-    .save-toast.active{display:block;animation:fadeIn .3s ease}
+    .save-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--mode1acc);color:var(--mode1acc);padding:.55rem 1.4rem;border-radius:4px;font-size:.82rem;letter-spacing:.06rem;pointer-events:none;opacity:0;transition:opacity .25s ease;z-index:9999;white-space:nowrap}
+    .save-toast.active{opacity:1}
 
     /* ── TOPIC SUGGEST ── */
     .btn-suggest-inline{background:transparent;border:1px solid var(--accent2);color:var(--accent);padding:.18rem .6rem;font-family:inherit;font-size:.68rem;letter-spacing:.06rem;cursor:pointer;border-radius:2px;vertical-align:middle;margin-left:.5rem;transition:all .18s}
@@ -379,6 +379,48 @@
     .btn-copy-series{background:transparent;border:1px solid rgba(123,184,219,.45);color:#7bb8db;padding:.45rem 1.1rem;font-family:inherit;font-size:.8rem;cursor:pointer;border-radius:2px;letter-spacing:.08rem;transition:all .2s}
     .btn-copy-series:hover{background:rgba(123,184,219,.1)}
     .btn-copy-series.copied{border-color:var(--mode1acc);color:var(--mode1acc)}
+    /* ── Gemini / Nanobanana ─────────────────────────────────────────────── */
+    .gemini-key-panel{margin-top:1rem}
+    .gemini-key-panel textarea{width:100%;min-height:68px;background:var(--card);border:1px solid rgba(91,200,200,.3);color:#a8d8d8;padding:.65rem .9rem;font-family:monospace;font-size:.77rem;line-height:1.6;border-radius:3px;outline:none;resize:vertical;box-sizing:border-box}
+    .gemini-key-panel textarea:focus{border-color:var(--imgacc)}
+    .gemini-key-status{color:var(--imgacc);font-size:.74rem;margin-left:.3rem}
+    .btn-nb-gen{background:linear-gradient(135deg,rgba(10,40,40,.6),rgba(5,20,20,.85));border:1px solid var(--imgacc);color:var(--imgacc);padding:.5rem 1.1rem;font-family:inherit;font-size:.8rem;cursor:pointer;border-radius:2px;letter-spacing:.05rem;transition:all .2s;white-space:nowrap}
+    .btn-nb-gen:hover:not(:disabled){background:rgba(91,200,200,.13)}
+    .btn-nb-gen:disabled{opacity:.35;cursor:not-allowed}
+    .nb-gen-bar{margin-top:.9rem;display:none;flex-direction:column;gap:.7rem}
+    .nb-gen-bar.active{display:flex}
+    .nb-img-progress{color:var(--muted);font-size:.78rem;font-style:italic}
+    .nb-imgs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.7rem}
+    .nb-img-item{border-radius:3px;overflow:hidden;border:1px solid rgba(91,200,200,.22);position:relative}
+    .nb-img-item img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+    .nb-img-caption{padding:.3rem .5rem;background:rgba(0,0,0,.55);color:#aaa;font-size:.64rem;line-height:1.4}
+    .nb-thumb-wrap{margin-top:.8rem}
+    .nb-thumb-wrap img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;border-radius:3px;border:1px solid rgba(91,200,200,.22)}
+    .nb-auto-bar{display:none;align-items:center;gap:1rem;padding:.8rem 0;margin:.3rem 0;flex-wrap:wrap}
+    .nb-auto-bar.active{display:flex;animation:fadeIn .3s ease}
+    .btn-auto-nb{background:linear-gradient(135deg,rgba(10,40,40,.55),rgba(5,20,20,.8));border:1px solid var(--imgacc);color:var(--imgacc);padding:.75rem 2rem;font-family:inherit;font-size:.92rem;letter-spacing:.14rem;cursor:pointer;border-radius:2px;transition:all .22s;white-space:nowrap}
+    .btn-auto-nb:hover:not(:disabled){background:rgba(91,200,200,.14);box-shadow:0 0 18px rgba(91,200,200,.18)}
+    .btn-auto-nb:disabled{opacity:.4;cursor:not-allowed}
+    .nb-auto-prog{color:var(--muted);font-size:.85rem;font-style:italic}
+    .or-key-status{color:#c8a050;font-size:.74rem;margin-left:.3rem}
+    .provider-toggle-bar{display:flex;align-items:center;gap:1.2rem;margin-top:.85rem;padding:.6rem .9rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:3px;flex-wrap:wrap}
+    .provider-toggle-label{font-size:.75rem;color:var(--muted);letter-spacing:.07rem;text-transform:uppercase}
+    .provider-opt{display:flex;align-items:center;gap:.35rem;font-size:.83rem;color:var(--text);cursor:pointer;user-select:none}
+    .provider-opt input[type=radio]{accent-color:var(--imgacc);cursor:pointer;width:14px;height:14px}
+    .aspect-ratio-bar{display:flex;align-items:center;gap:.6rem;margin-top:.8rem;flex-wrap:wrap;padding:.55rem .9rem;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:3px}
+    .ar-label{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07rem;white-space:nowrap}
+    .btn-ar{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.28rem .65rem;font-size:.78rem;cursor:pointer;border-radius:2px;transition:all .18s;font-family:inherit}
+    .btn-ar:hover{border-color:var(--imgacc);color:var(--imgacc)}
+    .btn-ar.ar-sel{border-color:var(--imgacc);color:var(--imgacc);background:rgba(91,200,200,.1)}
+    .btn-ar-apply{background:var(--imgacc);color:#041515;border:none;padding:.28rem .85rem;font-size:.78rem;cursor:pointer;border-radius:2px;font-family:inherit;font-weight:600;letter-spacing:.05rem;transition:opacity .2s}
+    .btn-ar-apply:hover{opacity:.85}
+    .ar-status{font-size:.74rem;color:var(--imgacc);font-style:italic}
+    .btn-nb-dl-section{background:transparent;border:1px solid rgba(91,200,200,.5);color:var(--imgacc);padding:.28rem .8rem;font-size:.76rem;cursor:pointer;border-radius:2px;font-family:inherit;transition:all .18s;text-decoration:none;display:inline-block}
+    .btn-nb-dl-section:hover{background:rgba(91,200,200,.12)}
+    .nb-img-actions{display:flex;justify-content:flex-end;padding:.28rem .4rem;background:rgba(0,0,0,.5)}
+    .btn-nb-regen{background:transparent;border:1px solid rgba(91,200,200,.4);color:var(--imgacc);padding:.2rem .65rem;font-size:.7rem;cursor:pointer;border-radius:2px;font-family:inherit;letter-spacing:.05rem;transition:all .18s}
+    .btn-nb-regen:hover:not(:disabled){background:rgba(91,200,200,.15)}
+    .btn-nb-regen:disabled{opacity:.3;cursor:not-allowed}
   </style>
 </head>
 <body>
@@ -407,6 +449,31 @@
       <label>Anthropic API Key</label>
       <input type="password" id="apiKey" placeholder="sk-ant-..." />
       <p class="api-note">Key chỉ dùng trong phiên này, không lưu trữ</p>
+    </div>
+    <div class="api-field gemini-key-panel">
+      <label>Google Gemini API Keys <span style="font-size:.74rem;color:var(--imgacc);letter-spacing:.04rem">(Nanobanana · xoay vòng)</span></label>
+      <textarea id="geminiKeys" placeholder="AIzaSy...&#10;AIzaSy...&#10;(mỗi key 1 dòng — tự xoay vòng khi tạo ảnh)" oninput="saveGeminiKeys()"></textarea>
+      <p class="api-note">Dùng tạo ảnh minh họa · <span id="geminiKeyStatus" class="gemini-key-status"></span></p>
+    </div>
+    <div class="api-field gemini-key-panel">
+      <label>OpenRouter API Keys <span style="font-size:.74rem;color:#c8a050;letter-spacing:.04rem">(GPT Image · xoay vòng)</span></label>
+      <textarea id="orKeys" placeholder="sk-or-v1-...&#10;sk-or-v1-...&#10;(mỗi key 1 dòng)" oninput="saveOrKeys()"></textarea>
+      <p class="api-note">Dùng tạo ảnh OpenRouter GPT · <span id="orKeyStatus" class="or-key-status"></span></p>
+    </div>
+    <div class="provider-toggle-bar">
+      <span class="provider-toggle-label">Provider tạo ảnh:</span>
+      <label class="provider-opt"><input type="radio" name="imgProvider" value="gemini" onchange="setImgProvider('gemini')" checked> Gemini 2.5 Flash Image</label>
+      <label class="provider-opt"><input type="radio" name="imgProvider" value="openrouter" onchange="setImgProvider('openrouter')"> OpenRouter GPT Image</label>
+    </div>
+    <div class="aspect-ratio-bar">
+      <span class="ar-label">Tỷ lệ ảnh:</span>
+      <button class="btn-ar ar-sel" data-size="1024x1024" onclick="selectAR(this)">1:1</button>
+      <button class="btn-ar" data-size="1365x1024" onclick="selectAR(this)">4:3</button>
+      <button class="btn-ar" data-size="1792x1024" onclick="selectAR(this)">16:9</button>
+      <button class="btn-ar" data-size="1024x1792" onclick="selectAR(this)">9:16</button>
+      <button class="btn-ar" data-size="1536x1024" onclick="selectAR(this)">3:2</button>
+      <button class="btn-ar-apply" onclick="applyAR()">✓ Apply</button>
+      <span class="ar-status" id="arStatus">Đang dùng: 1:1</span>
     </div>
     <div class="form-grid">
       <div class="field">
@@ -558,6 +625,18 @@
       <button class="btn-copy-main teal" id="btnCopyImgs" onclick="copyAllImagePrompts()">🖼 &nbsp;Copy toàn bộ Image Prompts</button>
     </div>
 
+    <!-- Auto Generate All Nanobanana Images -->
+    <div class="nb-auto-bar" id="autoNbBar">
+      <button class="btn-auto-nb" id="btnAutoNb" onclick="autoGenAllNbImages()">🖼 &nbsp;Tạo tất cả ảnh Nanobanana</button>
+      <span class="nb-auto-prog" id="autoNbProg"></span>
+    </div>
+
+    <!-- Download Nanobanana Images -->
+    <div class="copy-all-card img-card" id="downloadNbCard" style="display:none;margin-top:.5rem">
+      <p>🖼 Toàn bộ ảnh Nanobanana đã tạo xong</p>
+      <button class="btn-copy-main teal" id="btnDownloadNb" onclick="downloadAllNbImages()">⬇ &nbsp;Tải tất cả ảnh (.zip không nén)</button>
+    </div>
+
     <hr class="divider" />
 
     <!-- ══ MODE 2 ══ -->
@@ -649,9 +728,9 @@
       <button class="btn-save-cancel" onclick="closeSaveDialog()">Hủy</button>
       <button class="btn-save-confirm" onclick="confirmSave()">💾 Lưu</button>
     </div>
-    <div class="save-toast" id="saveToast">✓ Đã lưu thành công</div>
   </div>
 </div>
+<div class="save-toast" id="saveToast">✓ Đã lưu thành công</div>
 
 <!-- LIBRARY FAB -->
 <button class="lib-fab" onclick="openLibrary()">📖 Kho điển cố</button>
@@ -721,6 +800,17 @@ let seoData         = null;
 
 // ── Helpers ───────────────────────────────────────────────────────────────
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function slugify(s){
+  return String(s)
+    .replace(/[àáạảãâầấậẩẫăằắặẳẵ]/g,'a').replace(/[ÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴ]/g,'A')
+    .replace(/[èéẹẻẽêềếệểễ]/g,'e').replace(/[ÈÉẸẺẼÊỀẾỆỂỄ]/g,'E')
+    .replace(/[ìíịỉĩ]/g,'i').replace(/[ÌÍỊỈĨ]/g,'I')
+    .replace(/[òóọỏõôồốộổỗơờớợởỡ]/g,'o').replace(/[ÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠ]/g,'O')
+    .replace(/[ùúụủũưừứựửữ]/g,'u').replace(/[ÙÚỤỦŨƯỪỨỰỬỮ]/g,'U')
+    .replace(/[ỳýỵỷỹ]/g,'y').replace(/[ỲÝỴỶỸ]/g,'Y')
+    .replace(/[đ]/g,'d').replace(/[Đ]/g,'D')
+    .replace(/[^a-zA-Z0-9\s]/g,'').trim().replace(/\s+/g,'_').slice(0,60)||'henrystv';
+}
 function parseDurMins(s){ const m=String(s).match(/(\d+(?:\.\d+)?)/); return m?parseFloat(m[1]):1; }
 function calcImages(mins){ return Math.max(1, Math.ceil(mins*60/10)); }
 function wordCount(t){ return t.trim().split(/\s+/).filter(Boolean).length; }
@@ -749,9 +839,14 @@ async function generate(){
   currentParts    = parseInt(outlinePts);
   sectionScripts  = {};
   imagePromptsMap = {};
+  nbImagesMap     = {};
   requiredSections= [];
   sectionDataMap  = {};
   seoData         = null;
+  const dlCard=document.getElementById('downloadNbCard'); if(dlCard) dlCard.style.display='none';
+  const autoNbBar=document.getElementById('autoNbBar'); if(autoNbBar) autoNbBar.classList.remove('active');
+  const btnAutoNb=document.getElementById('btnAutoNb'); if(btnAutoNb){ btnAutoNb.disabled=false; btnAutoNb.textContent='🖼  Tạo tất cả ảnh Nanobanana'; }
+  const autoNbProg=document.getElementById('autoNbProg'); if(autoNbProg) autoNbProg.textContent='';
 
   // Reset Mode 2
   document.getElementById('seoContent').classList.remove('active');
@@ -867,6 +962,14 @@ function makeScriptZone(id,writeLabel,numImages){
           <button class="btn-rewrite" onclick="genImagePrompts('${id}')">↺ Tạo lại</button>
         </div>
       </div>
+      <div class="nb-gen-bar" id="nb-bar-${id}">
+        <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap">
+          <button class="btn-nb-gen" onclick="nanobananaGenSection('${id}')">🖼 &nbsp;Tạo ảnh Nanobanana</button>
+          <button class="btn-nb-dl-section" id="nb-dl-${id}" style="display:none" onclick="downloadSectionImages('${id}')">⬇ Tải ảnh phần này</button>
+        </div>
+        <div class="nb-img-progress" id="nb-prog-${id}"></div>
+        <div class="nb-imgs-grid" id="nb-imgs-${id}"></div>
+      </div>
     </div>
   </div>`;
 }
@@ -942,15 +1045,23 @@ async function genImagePrompts(id){
     ta.value=json.prompts.join('\n\n'); autoResize(ta);
     document.getElementById('ig-cnt-'+id).textContent=json.prompts.length+' prompts';
     document.getElementById('ig-out-'+id).classList.add('active');
+    document.getElementById('nb-bar-'+id).classList.add('active');
     checkAllImages();
   } catch(err){ setErrShow('ig-err-'+id,'Lỗi: '+err.message); document.getElementById('ig-btn-'+id).style.display=''; }
   finally{ document.getElementById('ig-spin-'+id).classList.remove('active'); setAllImgBtns(false); }
 }
-function onImgEdit(id){ const ta=document.getElementById('ig-ta-'+id); imagePromptsMap[id]=ta.value.split(/\n{2,}/).map(p=>p.trim()).filter(Boolean); document.getElementById('ig-cnt-'+id).textContent=(imagePromptsMap[id]||[]).length+' prompts'; }
+function onImgEdit(id){
+  const ta=document.getElementById('ig-ta-'+id);
+  imagePromptsMap[id]=ta.value.split(/\n{2,}/).map(p=>p.trim()).filter(Boolean);
+  document.getElementById('ig-cnt-'+id).textContent=(imagePromptsMap[id]||[]).length+' prompts';
+  const nb=document.getElementById('nb-bar-'+id);
+  if(nb) nb.classList.toggle('active', imagePromptsMap[id].length>0);
+}
 function setAllImgBtns(dis){ document.querySelectorAll('.btn-img-gen').forEach(b=>b.disabled=dis); }
 function checkAllImages(){
   const allDone=requiredSections.length>0&&requiredSections.every(id=>(imagePromptsMap[id]||[]).length>0);
   document.getElementById('copyImgCard').classList.toggle('active',allDone);
+  document.getElementById('autoNbBar').classList.toggle('active',allDone);
   if(allDone) document.getElementById('autoImgBar').classList.remove('active');
 }
 
@@ -994,7 +1105,7 @@ function renderSEO(d){
   document.getElementById('thumbTextBody').innerHTML=`<div class="thumbnail-text-box"><span>${esc(d.thumbnailText)}</span></div><p class="hint">↑ Preview text overlay (3-5 từ)</p><div class="copy-bar"><button class="btn-copy-sec" onclick="copyText(${JSON.stringify(d.thumbnailText)},this)">Copy text</button></div>`;
 
   // Thumbnail Prompt
-  document.getElementById('thumbPromptBody').innerHTML=`<div class="prompt-box">${esc(d.thumbnailPrompt)}</div><div class="copy-bar"><button class="btn-copy-sec" onclick="copyText(${JSON.stringify(d.thumbnailPrompt)},this)">Copy prompt</button></div>`;
+  document.getElementById('thumbPromptBody').innerHTML=`<div class="prompt-box">${esc(d.thumbnailPrompt)}</div><div class="copy-bar"><button class="btn-copy-sec" data-text="${esc(d.thumbnailPrompt)}" onclick="copyText(this.dataset.text,this)">Copy prompt</button><button class="btn-nb-gen" id="btnNbThumb" data-prompt="${esc(d.thumbnailPrompt)}" onclick="nanobananaGenThumb(this.dataset.prompt)">🖼 &nbsp;Tạo ảnh Nanobanana</button></div><div id="nbThumbWrap"></div>`;
 
   // Show content, hide trigger card, show copy card
   document.getElementById('seoTriggerCard').style.display='none';
@@ -1161,9 +1272,10 @@ function confirmSave(){
   setProjects(projects);
 
   document.getElementById('projectCurrentName').textContent = '💾 ' + name;
+  closeSaveDialog();
   const toast = document.getElementById('saveToast');
   toast.classList.add('active');
-  setTimeout(()=>{ toast.classList.remove('active'); closeSaveDialog(); }, 1200);
+  setTimeout(()=>toast.classList.remove('active'), 2000);
 }
 
 function closeSaveDialog(){
@@ -1238,7 +1350,12 @@ function loadProject(id){
   // Reset state
   sectionScripts  = {};
   imagePromptsMap = {};
+  nbImagesMap     = {};
   seoData         = null;
+  const dlCard2=document.getElementById('downloadNbCard'); if(dlCard2) dlCard2.style.display='none';
+  const autoNbBar2=document.getElementById('autoNbBar'); if(autoNbBar2) autoNbBar2.classList.remove('active');
+  const btnAutoNb2=document.getElementById('btnAutoNb'); if(btnAutoNb2){ btnAutoNb2.disabled=false; btnAutoNb2.textContent='🖼  Tạo tất cả ảnh Nanobanana'; }
+  const autoNbProg2=document.getElementById('autoNbProg'); if(autoNbProg2) autoNbProg2.textContent='';
   lastData        = project.outline || null;
 
   // Reset Mode 2
@@ -1275,6 +1392,7 @@ function loadProject(id){
       document.getElementById('ig-btn-'+sid).style.display='none';
       document.getElementById('ig-out-'+sid).classList.add('active');
       document.getElementById('ig-cnt-'+sid).textContent = prompts.length+' prompts';
+      const nbBar=document.getElementById('nb-bar-'+sid); if(nbBar) nbBar.classList.add('active');
     });
 
     checkAllScripts();
@@ -1610,7 +1728,318 @@ function showLibToast(msg){
 
 // Debounced search
 let libSearchTimer;
+// ── Image Generation — Gemini + OpenRouter ────────────────────────────────
+let geminiKeyIdx = 0;
+let orKeyIdx = 0;
+let imgProvider = 'gemini';
+let nbImagesMap = {}; // { sectionId: [{dataUrl, prompt}], thumb: {dataUrl} }
+
+function getNextGeminiKey(){
+  const raw = document.getElementById('geminiKeys').value;
+  const keys = raw.split('\n').map(k=>k.trim()).filter(Boolean);
+  if(!keys.length){ alert('Chưa nhập Google Gemini API Key!\nVào ô "Google Gemini API Keys" và nhập key vào.'); return null; }
+  const key = keys[geminiKeyIdx % keys.length];
+  geminiKeyIdx++;
+  updateGeminiKeyStatus(keys.length);
+  return key;
+}
+function updateGeminiKeyStatus(total){
+  const el=document.getElementById('geminiKeyStatus');
+  if(!el||!total) return;
+  el.textContent = total>1 ? `${total} keys · đang dùng key ${((geminiKeyIdx-1)%total)+1}` : '1 key';
+}
+function saveGeminiKeys(){
+  localStorage.setItem('geminiKeys', document.getElementById('geminiKeys').value);
+  const keys=document.getElementById('geminiKeys').value.split('\n').filter(k=>k.trim());
+  updateGeminiKeyStatus(keys.length);
+}
+function loadGeminiKeys(){
+  const saved=localStorage.getItem('geminiKeys');
+  if(saved){ document.getElementById('geminiKeys').value=saved; const keys=saved.split('\n').filter(k=>k.trim()); updateGeminiKeyStatus(keys.length); }
+}
+
+// ── OpenRouter key management ─────────────────────────────────────────────
+function getNextOrKey(){
+  const keys=document.getElementById('orKeys').value.split('\n').map(k=>k.trim()).filter(Boolean);
+  if(!keys.length){ alert('Chưa nhập OpenRouter API Key!\nVào ô "OpenRouter API Keys" và nhập key vào.'); return null; }
+  const key=keys[orKeyIdx%keys.length];
+  orKeyIdx++;
+  updateOrKeyStatus(keys.length);
+  return key;
+}
+function updateOrKeyStatus(total){
+  const el=document.getElementById('orKeyStatus');
+  if(!el||!total) return;
+  el.textContent=total>1?`${total} keys · đang dùng key ${((orKeyIdx-1)%total)+1}`:'1 key';
+}
+function saveOrKeys(){
+  localStorage.setItem('orKeys',document.getElementById('orKeys').value);
+  const keys=document.getElementById('orKeys').value.split('\n').filter(k=>k.trim());
+  updateOrKeyStatus(keys.length);
+}
+function loadOrKeys(){
+  const saved=localStorage.getItem('orKeys');
+  if(saved){ document.getElementById('orKeys').value=saved; const keys=saved.split('\n').filter(k=>k.trim()); updateOrKeyStatus(keys.length); }
+}
+function setImgProvider(val){
+  imgProvider=val;
+  localStorage.setItem('imgProvider',val);
+}
+function loadImgProvider(){
+  imgProvider=localStorage.getItem('imgProvider')||'gemini';
+  const radio=document.querySelector(`input[name="imgProvider"][value="${imgProvider}"]`);
+  if(radio) radio.checked=true;
+}
+
+// ── Aspect ratio selection ────────────────────────────────────────────────
+let appliedSize = '1024x1024';
+function selectAR(btn){
+  document.querySelectorAll('.btn-ar').forEach(b=>b.classList.remove('ar-sel'));
+  btn.classList.add('ar-sel');
+}
+function applyAR(){
+  const btn=document.querySelector('.btn-ar.ar-sel');
+  if(!btn) return;
+  appliedSize=btn.dataset.size;
+  localStorage.setItem('appliedSize',appliedSize);
+  const labels={'1024x1024':'1:1','1365x1024':'4:3','1792x1024':'16:9','1024x1792':'9:16','1536x1024':'3:2'};
+  document.getElementById('arStatus').textContent='Đang dùng: '+(labels[appliedSize]||appliedSize);
+}
+function loadAR(){
+  const saved=localStorage.getItem('appliedSize');
+  if(saved){
+    appliedSize=saved;
+    const btn=document.querySelector(`.btn-ar[data-size="${saved}"]`);
+    if(btn){ document.querySelectorAll('.btn-ar').forEach(b=>b.classList.remove('ar-sel')); btn.classList.add('ar-sel'); }
+    const labels={'1024x1024':'1:1','1365x1024':'4:3','1792x1024':'16:9','1024x1792':'9:16','1536x1024':'3:2'};
+    document.getElementById('arStatus').textContent='Đang dùng: '+(labels[saved]||saved);
+  }
+}
+
+// ── Image gen dispatcher ──────────────────────────────────────────────────
+async function _nbGenOne(prompt, size){
+  const s=size||appliedSize;
+  return imgProvider==='openrouter' ? _orGenOne(prompt,s) : _geminiGenOne(prompt,s);
+}
+async function _geminiGenOne(prompt, size){
+  const apiKey=getNextGeminiKey();
+  if(!apiKey) return null;
+  const res=await fetch('/api/nanobanana-gen-image',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,apiKey,size})});
+  const json=await res.json();
+  if(!res.ok) throw new Error(json.error||'Lỗi Gemini');
+  return json.imageData;
+}
+async function _orGenOne(prompt, size){
+  const apiKey=getNextOrKey();
+  if(!apiKey) return null;
+  const res=await fetch('/api/openrouter-gen-image',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,apiKey,size})});
+  const json=await res.json();
+  if(!res.ok) throw new Error(json.error||'Lỗi OpenRouter');
+  return json.imageData;
+}
+
+function _makeNbItem(id, i, imgData, promptText){
+  const item=document.createElement('div');
+  item.className='nb-img-item';
+  const caption=promptText.length>90?promptText.slice(0,90)+'…':promptText;
+  item.innerHTML=`<img src="${imgData}" alt="ảnh ${i+1}" style="transition:opacity .3s"><div class="nb-img-actions"><button class="btn-nb-regen" onclick="nanobananaRegenImage('${id}',${i},this)">↺ Tạo lại</button></div><div class="nb-img-caption">${esc(caption)}</div>`;
+  return item;
+}
+
+async function nanobananaGenSection(id){
+  const ta=document.getElementById('ig-ta-'+id);
+  const prompts=(ta?.value||'').split(/\n{2,}/).map(p=>p.trim()).filter(Boolean);
+  if(!prompts.length){ alert('Chưa có prompt ảnh! Hãy tạo prompt trước.'); return; }
+  const bar=document.getElementById('nb-bar-'+id);
+  const prog=document.getElementById('nb-prog-'+id);
+  const grid=document.getElementById('nb-imgs-'+id);
+  const btn=bar.querySelector('.btn-nb-gen');
+
+  // Snapshot ảnh đã tạo trước đó (theo index)
+  const existing=[...(nbImagesMap[id]||[])];
+  const pendingIdxs=prompts.map((_,i)=>i).filter(i=>!existing[i]?.dataUrl);
+
+  if(!pendingIdxs.length){
+    prog.textContent=`Tất cả ${prompts.length} ảnh đã có rồi`;
+    return;
+  }
+
+  btn.disabled=true;
+  // Rebuild grid: hiển thị ảnh cũ ngay, placeholder cho ảnh chưa có
+  grid.innerHTML='';
+  nbImagesMap[id]=[];
+  for(let i=0;i<prompts.length;i++){
+    if(existing[i]?.dataUrl){
+      nbImagesMap[id].push({ dataUrl: existing[i].dataUrl, prompt: prompts[i] });
+      grid.appendChild(_makeNbItem(id, i, existing[i].dataUrl, prompts[i]));
+    } else {
+      nbImagesMap[id].push(null); // placeholder
+    }
+  }
+
+  // Tạo các ảnh còn thiếu
+  let genDone=0;
+  for(const i of pendingIdxs){
+    prog.textContent=`Đang tạo ảnh ${i+1}/${prompts.length} (còn ${pendingIdxs.length-genDone} ảnh)…`;
+    try{
+      const imgData=await _nbGenOne(prompts[i], appliedSize);
+      if(imgData){
+        nbImagesMap[id][i]={ dataUrl: imgData, prompt: prompts[i] };
+        const item=_makeNbItem(id, i, imgData, prompts[i]);
+        // Chèn đúng vị trí trong grid
+        const items=grid.querySelectorAll('.nb-img-item');
+        const before=Array.from(items).find(el=>parseInt(el.querySelector('img').alt.replace('ảnh ',''))-1 > i);
+        if(before) grid.insertBefore(item, before); else grid.appendChild(item);
+      }
+    } catch(err){ prog.textContent=`Lỗi ảnh ${i+1}: ${err.message}`; }
+    genDone++;
+  }
+
+  const done=nbImagesMap[id].filter(x=>x?.dataUrl).length;
+  prog.textContent=`Hoàn tất ${done}/${prompts.length} ảnh`;
+  btn.disabled=false;
+  if(done>0){ const dlBtn=document.getElementById('nb-dl-'+id); if(dlBtn) dlBtn.style.display=''; }
+  checkAllNbImages();
+}
+
+async function autoGenAllNbImages(){
+  const btn=document.getElementById('btnAutoNb');
+  const prog=document.getElementById('autoNbProg');
+  btn.disabled=true;
+  const sections=requiredSections.filter(id=>(imagePromptsMap[id]||[]).length>0);
+  for(let i=0;i<sections.length;i++){
+    const id=sections[i];
+    const label=nbSectionLabel(id).replace(/_/g,' ').trim();
+    prog.textContent=`${i+1}/${sections.length}: ${label}…`;
+    await nanobananaGenSection(id);
+    await new Promise(r=>setTimeout(r,350));
+  }
+  prog.textContent=`✓ Xong — ${sections.length} phần`;
+  btn.textContent='✓ Đã tạo tất cả';
+  btn.disabled=false;
+  checkAllNbImages();
+}
+
+async function nanobananaRegenImage(id, index, btn){
+  const imgs=nbImagesMap[id]||[];
+  if(!imgs[index]) return;
+  const item=btn.closest('.nb-img-item');
+  const imgEl=item.querySelector('img');
+  btn.disabled=true;
+  if(imgEl) imgEl.style.opacity='0.3';
+  try{
+    const imgData=await _nbGenOne(imgs[index].prompt, appliedSize);
+    if(imgData){
+      nbImagesMap[id][index].dataUrl=imgData;
+      if(imgEl){ imgEl.src=imgData; imgEl.style.opacity='1'; }
+    }
+  } catch(err){
+    if(imgEl) imgEl.style.opacity='1';
+    const cap=item.querySelector('.nb-img-caption');
+    if(cap) cap.textContent='Lỗi: '+err.message;
+  }
+  btn.disabled=false;
+}
+
+async function nanobananaGenThumb(prompt){
+  const btn=document.getElementById('btnNbThumb');
+  const wrap=document.getElementById('nbThumbWrap');
+  if(btn) btn.disabled=true;
+  if(wrap) wrap.innerHTML='<p style="color:var(--muted);font-size:.8rem;font-style:italic;margin-top:.5rem">Đang tạo ảnh thumbnail…</p>';
+  try{
+    const imgData=await _nbGenOne(prompt, '1792x1024');
+    if(imgData){
+      nbImagesMap['thumb']={ dataUrl: imgData };
+      const ext=imgData.startsWith('data:image/png')?'png':'jpg';
+      if(wrap) wrap.innerHTML=`<div class="nb-thumb-wrap"><img src="${imgData}" alt="thumbnail"></div><div class="copy-bar" style="margin-top:.5rem"><a class="btn-copy-sec" href="${imgData}" download="thumbnail.${ext}">⬇ Tải ảnh thumbnail</a></div>`;
+    }
+  } catch(err){
+    if(wrap) wrap.innerHTML=`<p style="color:var(--red);font-size:.8rem;margin-top:.5rem">Lỗi: ${err.message}</p>`;
+  }
+  if(btn) btn.disabled=false;
+}
+
+function nbSectionLabel(id){
+  if(id==='hook')      return '01_Mo_bai';
+  if(id==='realworld') return '0x_Thuc_te';
+  if(id==='outro')     return '0z_Ket_bai';
+  const n=parseInt(id.split('_')[1]||0);
+  return String(n+2).padStart(2,'0')+'_Luan_diem_'+(n+1);
+}
+
+async function downloadSectionImages(id){
+  const imgs=(nbImagesMap[id]||[]).filter(x=>x?.dataUrl);
+  if(!imgs.length){ alert('Chưa có ảnh nào ở phần này.'); return; }
+  const zip=new JSZip();
+  imgs.forEach((img,i)=>{
+    const b64=img.dataUrl.split(',')[1];
+    const ext=img.dataUrl.startsWith('data:image/png')?'png':'jpg';
+    zip.file(`${nbSectionLabel(id)}_anh${i+1}.${ext}`, b64, {base64:true, compression:'STORE'});
+  });
+  const blob=await zip.generateAsync({type:'blob', compression:'STORE'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=`${slugify(currentTopic||'henrystv')}_${nbSectionLabel(id)}.zip`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function checkAllNbImages(){
+  if(!requiredSections.length) return;
+  const allDone=requiredSections.every(id=>{
+    const imgs=nbImagesMap[id]||[];
+    return imgs.length>0 && imgs.every(img=>img?.dataUrl);
+  });
+  const card=document.getElementById('downloadNbCard');
+  if(card) card.style.display=allDone?'':'none';
+}
+
+async function downloadAllNbImages(){
+  const btn=document.getElementById('btnDownloadNb');
+  btn.disabled=true;
+  const origText=btn.textContent;
+  btn.textContent='Đang tạo ZIP…';
+  try{
+    const zip=new JSZip();
+    let count=0;
+    for(const id of requiredSections){
+      const imgs=nbImagesMap[id]||[];
+      imgs.forEach((img,i)=>{
+        if(!img?.dataUrl) return;
+        const b64=img.dataUrl.split(',')[1];
+        const ext=img.dataUrl.startsWith('data:image/png')?'png':'jpg';
+        zip.file(`${nbSectionLabel(id)}_anh${i+1}.${ext}`, b64, {base64:true, compression:'STORE'});
+        count++;
+      });
+    }
+    if(nbImagesMap.thumb){
+      const b64=nbImagesMap.thumb.dataUrl.split(',')[1];
+      const ext=nbImagesMap.thumb.dataUrl.startsWith('data:image/png')?'png':'jpg';
+      zip.file(`thumbnail.${ext}`, b64, {base64:true, compression:'STORE'});
+      count++;
+    }
+    const blob=await zip.generateAsync({type:'blob', compression:'STORE'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;
+    a.download=`${slugify(currentTopic||'henrystv')}_images.zip`;
+    a.click();
+    URL.revokeObjectURL(url);
+    btn.textContent=`✓ Đã tải ${count} ảnh`;
+    setTimeout(()=>{ btn.textContent=origText; btn.disabled=false; }, 3000);
+  } catch(err){
+    alert('Lỗi tạo ZIP: '+err.message);
+    btn.textContent=origText;
+    btn.disabled=false;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', ()=>{
+  loadGeminiKeys();
+  loadOrKeys();
+  loadImgProvider();
+  loadAR();
   document.getElementById('libSearch').addEventListener('input', e=>{
     clearTimeout(libSearchTimer);
     libQuery = e.target.value;
@@ -1621,5 +2050,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
   });
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 </body>
 </html>
