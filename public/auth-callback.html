@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đang xác thực — HenrysTV</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:#080810;
+      color:#e8c97a;
+      font-family:'Georgia','Times New Roman',serif;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+    .wrap{ display:flex; flex-direction:column; align-items:center; gap:1.2rem; }
+    .sigil{ font-size:2rem; color:#c8a96e; opacity:.65; letter-spacing:.5rem; }
+    .spin{
+      width:44px; height:44px;
+      border:2px solid #2c2c44;
+      border-top-color:#c8a96e;
+      border-radius:50%;
+      animation:spin .85s linear infinite;
+    }
+    @keyframes spin{ to{ transform:rotate(360deg); } }
+    .msg{ font-size:.9rem; color:#7a7570; font-style:italic; letter-spacing:.06rem; }
+    .err{ font-size:.85rem; color:#c85050; display:none; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="sigil">☯</div>
+  <div class="spin"></div>
+  <p class="msg" id="msg">Đang xác thực tài khoản…</p>
+  <p class="err" id="err"></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL  = 'https://jyvdyspyiwithnioiirm.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp5dmR5c3B5aXdpdGhuaW9paXJtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwNTc4ODEsImV4cCI6MjA5NTYzMzg4MX0.FXw6g_OYK3XhNezluZT7US1P-qacmVCLk0RrPSjDqZg';
+
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON, {
+  auth: {
+    autoRefreshToken:   true,
+    persistSession:     true,
+    detectSessionInUrl: true
+  }
+});
+
+let done = false;
+
+function goStudio(){ if(!done){ done=true; window.location.replace('/studio.html'); } }
+function goLogin(msg){ if(!done){ done=true; window.location.replace('/login.html?error=' + encodeURIComponent(msg||'auth_failed')); } }
+
+// Primary: listen for auth state change
+sb.auth.onAuthStateChange((event, session) => {
+  if((event === 'SIGNED_IN' || event === 'INITIAL_SESSION') && session){
+    document.getElementById('msg').textContent = 'Xác thực thành công, đang tải Studio…';
+    goStudio();
+  }
+});
+
+// Backup: poll getSession() every 200ms for up to 8 seconds
+(async () => {
+  for(let i = 0; i < 40; i++){
+    if(done) return;
+    const { data: { session } } = await sb.auth.getSession();
+    if(session){ goStudio(); return; }
+    await new Promise(r => setTimeout(r, 200));
+  }
+  if(!done){
+    document.getElementById('err').style.display = '';
+    document.getElementById('err').textContent = 'Xác thực thất bại. Đang quay lại trang đăng nhập…';
+    setTimeout(() => goLogin('timeout'), 2000);
+  }
+})();
+</script>
+</body>
+</html>

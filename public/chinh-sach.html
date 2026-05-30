@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chính sách — HenrysTV</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .page-hero{padding:8rem 0 4rem;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(200,169,110,.07) 0%,transparent 60%);border-bottom:1px solid var(--border)}
+    .page-hero-sigil{font-size:2rem;color:var(--accent);opacity:.6;letter-spacing:.5rem;margin-bottom:1rem}
+    .page-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:normal;color:var(--gold);letter-spacing:.08rem;margin-bottom:.8rem}
+    .policy-wrap{max-width:760px;margin:0 auto;padding:0 1.5rem}
+    .tab-bar{display:flex;gap:.5rem;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:.8rem}
+    .tab{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.4rem 1.2rem;font-family:inherit;font-size:.8rem;letter-spacing:.1rem;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .2s}
+    .tab.active{border-color:var(--accent);color:var(--gold);background:rgba(200,169,110,.06)}
+    .tab:hover:not(.active){border-color:var(--accent2);color:var(--accent)}
+    .policy-content{display:none}
+    .policy-content.active{display:block}
+    .policy-content h2{font-size:1.05rem;font-weight:normal;color:var(--gold);letter-spacing:.06rem;margin:2rem 0 .7rem;border-left:3px solid var(--accent2);padding-left:.85rem}
+    .policy-content h2:first-child{margin-top:0}
+    .policy-content p{font-size:.9rem;color:var(--text);line-height:1.85;margin-bottom:.9rem}
+    .policy-content ul{margin:.5rem 0 .9rem 1.2rem;display:flex;flex-direction:column;gap:.35rem}
+    .policy-content ul li{font-size:.88rem;color:var(--text);line-height:1.65}
+    .policy-content strong{color:var(--accent)}
+    .policy-meta{font-size:.75rem;color:var(--muted2);font-style:italic;margin-bottom:2rem;padding:.6rem .9rem;background:var(--surface);border:1px solid var(--border);border-radius:2px}
+  </style>
+</head>
+<body class="page-top">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-sigil">☯</span> HenrysTV</a>
+    <div class="nav-links">
+      <a href="/about.html">Giới thiệu</a>
+      <a href="/#pricing">Bảng giá</a>
+      <a href="/contact.html">Liên hệ</a>
+      <a href="/chinh-sach.html" class="active">Chính sách</a>
+    </div>
+    <div class="nav-auth">
+      <a href="/login.html"  class="nav-btn"               id="navLoginBtn">Đăng nhập</a>
+      <a href="/studio.html" class="nav-btn nav-btn-primary" id="navStudioBtn" style="display:none">Studio →</a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="toggleMobileNav()">☰</button>
+  </div>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <a href="/about.html">Giới thiệu</a>
+    <a href="/#pricing">Bảng giá</a>
+    <a href="/contact.html">Liên hệ</a>
+    <a href="/chinh-sach.html">Chính sách</a>
+    <a href="/login.html">Đăng nhập</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-sigil">道</div>
+  <h1>Chính sách</h1>
+</div>
+
+<section class="section">
+  <div class="policy-wrap">
+    <div class="tab-bar">
+      <button class="tab active" onclick="switchTab('privacy',this)">Chính sách bảo mật</button>
+      <button class="tab"        onclick="switchTab('terms',this)">Điều khoản sử dụng</button>
+    </div>
+
+    <!-- PRIVACY -->
+    <div class="policy-content active" id="tabPrivacy">
+      <p class="policy-meta">Cập nhật lần cuối: 29/05/2026 · Có hiệu lực ngay khi đăng ký tài khoản</p>
+
+      <h2>1. Thông tin chúng tôi thu thập</h2>
+      <p>Khi bạn đăng ký và sử dụng HenrysTV, chúng tôi thu thập:</p>
+      <ul>
+        <li><strong>Thông tin tài khoản:</strong> địa chỉ email, tên hiển thị (nếu cung cấp), mật khẩu được mã hoá.</li>
+        <li><strong>Dữ liệu sử dụng:</strong> nội dung projects bạn lưu (chủ đề, outline, script, image prompts, SEO data).</li>
+        <li><strong>API keys:</strong> nếu bạn chọn lưu API keys của bên thứ ba vào tài khoản, chúng được mã hoá tại rest.</li>
+        <li><strong>Thông tin giao dịch:</strong> gói đăng ký, ngày kích hoạt, ngày hết hạn.</li>
+      </ul>
+
+      <h2>2. Cách chúng tôi sử dụng thông tin</h2>
+      <p>Thông tin thu thập được dùng để:</p>
+      <ul>
+        <li>Cung cấp và duy trì dịch vụ HenrysTV Studio.</li>
+        <li>Xác thực danh tính và quản lý tài khoản người dùng.</li>
+        <li>Gửi thông báo liên quan đến tài khoản (hết hạn gói, cập nhật dịch vụ).</li>
+        <li>Cải thiện tính năng dựa trên phản hồi (không bao gồm nội dung cá nhân).</li>
+      </ul>
+      <p>Chúng tôi <strong>KHÔNG</strong> bán, cho thuê, hoặc chia sẻ thông tin cá nhân của bạn với bên thứ ba vì mục đích thương mại.</p>
+
+      <h2>3. Bảo mật dữ liệu</h2>
+      <p>Dữ liệu của bạn được bảo vệ bởi:</p>
+      <ul>
+        <li>Mã hoá HTTPS cho tất cả kết nối giữa trình duyệt và máy chủ.</li>
+        <li>Supabase Authentication với JSON Web Tokens (JWT) — tiêu chuẩn bảo mật ngành.</li>
+        <li>Row Level Security (RLS) trong PostgreSQL — mỗi user chỉ truy cập được dữ liệu của mình.</li>
+        <li>API keys lưu trên server được mã hoá tại rest bởi Supabase.</li>
+      </ul>
+
+      <h2>4. Lưu giữ dữ liệu</h2>
+      <p>
+        Dữ liệu tài khoản được lưu giữ đến khi bạn yêu cầu xoá.
+        Projects của user thông thường tự động xoá sau <strong>72 giờ</strong> từ lúc tạo.
+        Admin có thể dọn dẹp projects hết hạn bất kỳ lúc nào.
+      </p>
+
+      <h2>5. Quyền của bạn</h2>
+      <p>Bạn có quyền:</p>
+      <ul>
+        <li>Truy cập và xem toàn bộ dữ liệu của mình trong phần Tài khoản.</li>
+        <li>Xoá từng project hoặc API key bất kỳ lúc nào.</li>
+        <li>Yêu cầu xoá toàn bộ tài khoản qua email liên hệ.</li>
+        <li>Yêu cầu bản sao dữ liệu cá nhân của bạn.</li>
+      </ul>
+
+      <h2>6. Cookies &amp; Local Storage</h2>
+      <p>
+        Chúng tôi sử dụng localStorage trên trình duyệt để lưu token phiên đăng nhập và
+        cài đặt giao diện (nhà cung cấp ảnh AI, tỷ lệ ảnh đã chọn). Không có cookie tracking.
+      </p>
+
+      <h2>7. Liên hệ về bảo mật</h2>
+      <p>
+        Nếu bạn phát hiện lỗ hổng bảo mật hoặc có câu hỏi về chính sách này,
+        vui lòng liên hệ: <a href="mailto:cotuongxastress@gmail.com">cotuongxastress@gmail.com</a>
+      </p>
+    </div>
+
+    <!-- TERMS -->
+    <div class="policy-content" id="tabTerms">
+      <p class="policy-meta">Cập nhật lần cuối: 29/05/2026 · Sử dụng dịch vụ đồng nghĩa với việc đồng ý các điều khoản này</p>
+
+      <h2>1. Chấp nhận điều khoản</h2>
+      <p>
+        Bằng cách tạo tài khoản và sử dụng HenrysTV Studio, bạn đồng ý với các Điều khoản sử dụng này.
+        Nếu không đồng ý, vui lòng không sử dụng dịch vụ.
+      </p>
+
+      <h2>2. Mô tả dịch vụ</h2>
+      <p>
+        HenrysTV cung cấp công cụ AI để tạo kịch bản YouTube, SEO, image prompts và lên kế hoạch nội dung
+        trong ngách Minh Triết Cổ Đông. Dịch vụ cần <strong>API key của bên thứ ba</strong>
+        (Anthropic Claude, OpenRouter, KymaAPI) do người dùng tự cung cấp.
+      </p>
+
+      <h2>3. Tài khoản người dùng</h2>
+      <ul>
+        <li>Bạn chịu trách nhiệm bảo mật thông tin đăng nhập tài khoản.</li>
+        <li>Không được chia sẻ tài khoản với người khác.</li>
+        <li>Tài khoản vi phạm có thể bị khoá hoặc xoá mà không cần thông báo trước.</li>
+      </ul>
+
+      <h2>4. Gói đăng ký và thanh toán</h2>
+      <ul>
+        <li>Gói dịch vụ được kích hoạt thủ công bởi admin sau khi xác nhận thanh toán.</li>
+        <li>Thanh toán thực hiện qua chuyển khoản ngân hàng, không hoàn tiền sau khi kích hoạt.</li>
+        <li>Gói hết hạn tự động sau thời gian quy định; không tự gia hạn.</li>
+        <li>Giá có thể thay đổi; thông báo trước ít nhất 7 ngày qua email.</li>
+      </ul>
+
+      <h2>5. Sử dụng hợp lệ</h2>
+      <p>Bạn đồng ý <strong>KHÔNG</strong> sử dụng dịch vụ để:</p>
+      <ul>
+        <li>Tạo nội dung vi phạm pháp luật Việt Nam hoặc quốc tế.</li>
+        <li>Spam, lừa đảo, hoặc gây hại cho người khác.</li>
+        <li>Phân phối lại hoặc bán lại tính năng của HenrysTV cho người khác.</li>
+        <li>Dịch ngược, hack, hoặc tấn công hệ thống.</li>
+      </ul>
+
+      <h2>6. Quyền sở hữu nội dung</h2>
+      <p>
+        Nội dung bạn tạo ra (script, outline, SEO) thông qua HenrysTV thuộc sở hữu của bạn.
+        HenrysTV không yêu cầu bất kỳ quyền sở hữu nào đối với nội dung đầu ra.
+      </p>
+
+      <h2>7. Giới hạn trách nhiệm</h2>
+      <p>
+        HenrysTV cung cấp dịch vụ "nguyên trạng". Chúng tôi không đảm bảo kết quả AI luôn
+        chính xác 100%. Người dùng chịu trách nhiệm kiểm tra và chỉnh sửa nội dung trước khi đăng tải.
+        HenrysTV không chịu trách nhiệm về bất kỳ thiệt hại nào phát sinh từ việc sử dụng dịch vụ.
+      </p>
+
+      <h2>8. Thay đổi điều khoản</h2>
+      <p>
+        Chúng tôi có thể cập nhật điều khoản này. Tiếp tục sử dụng dịch vụ sau khi thông báo
+        đồng nghĩa với việc bạn chấp nhận điều khoản mới.
+      </p>
+
+      <h2>9. Luật áp dụng</h2>
+      <p>Các điều khoản này được điều chỉnh bởi pháp luật nước Cộng hoà Xã hội Chủ nghĩa Việt Nam.</p>
+
+      <h2>10. Liên hệ</h2>
+      <p>Câu hỏi về điều khoản: <a href="mailto:cotuongxastress@gmail.com">cotuongxastress@gmail.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">☯ HenrysTV</div>
+      <p>Ứng dụng Minh Triết Cổ Đông<br>vào Nội dung YouTube hiện đại.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Sản phẩm</h4>
+        <a href="/studio.html">Studio</a>
+        <a href="/#pricing">Bảng giá</a>
+      </div>
+      <div class="footer-col">
+        <h4>Thông tin</h4>
+        <a href="/about.html">Giới thiệu</a>
+        <a href="/contact.html">Liên hệ</a>
+        <a href="/chinh-sach.html">Chính sách</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1080px;margin:0 auto;padding:1.2rem 1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;font-size:.75rem;color:var(--muted2)">
+    <span>© 2026 HenrysTV. All rights reserved.</span>
+    <div class="footer-sigil">☰  ☱  ☲  ☳  ☴  ☵  ☶  ☷</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="auth.js"></script>
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.policy-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab' + id.charAt(0).toUpperCase() + id.slice(1)).classList.add('active');
+}
+</script>
+</body>
+</html>

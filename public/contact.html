@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liên hệ — HenrysTV</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .page-hero{padding:8rem 0 4rem;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(200,169,110,.07) 0%,transparent 60%);border-bottom:1px solid var(--border)}
+    .page-hero-sigil{font-size:2rem;color:var(--accent);opacity:.6;letter-spacing:.5rem;margin-bottom:1rem}
+    .page-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:normal;color:var(--gold);letter-spacing:.08rem;margin-bottom:.8rem}
+    .page-hero p{font-size:1rem;color:var(--muted);max-width:500px;margin:0 auto;line-height:1.8}
+    .contact-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;max-width:900px;margin:0 auto;padding:0 1.5rem}
+    @media(max-width:680px){.contact-layout{grid-template-columns:1fr}}
+    .contact-form-box{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:2rem}
+    .contact-form-box h2{font-size:.85rem;letter-spacing:.18rem;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+    .submit-btn{width:100%;background:transparent;border:1px solid var(--accent);color:var(--gold);padding:.85rem;font-family:inherit;font-size:.9rem;letter-spacing:.18rem;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .25s;margin-top:.5rem}
+    .submit-btn:hover:not(:disabled){background:rgba(200,169,110,.1)}
+    .submit-btn:disabled{opacity:.5;cursor:not-allowed}
+    .form-msg{font-size:.8rem;margin-top:.6rem;text-align:center;min-height:1rem}
+    .form-msg.ok{color:var(--green)}
+    .form-msg.err{color:#e08080}
+    .contact-info h2{font-size:.85rem;letter-spacing:.18rem;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+    .info-item{display:flex;gap:.9rem;align-items:flex-start;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .info-item:last-child{border-bottom:none}
+    .info-icon{font-size:1.1rem;color:var(--accent);opacity:.7;flex-shrink:0;width:1.5rem;margin-top:.1rem}
+    .info-item h3{font-size:.78rem;letter-spacing:.1rem;text-transform:uppercase;color:var(--muted2);margin-bottom:.25rem}
+    .info-item p,.info-item a{font-size:.88rem;color:var(--text);line-height:1.6}
+    .info-item a:hover{color:var(--gold)}
+    .phil-aside{margin-top:2rem;background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--accent2);border-radius:0 3px 3px 0;padding:1.2rem 1rem}
+    .phil-aside p{font-size:.85rem;color:var(--text);font-style:italic;line-height:1.7;margin-bottom:.4rem}
+    .phil-aside cite{font-size:.7rem;color:var(--accent);font-style:normal;letter-spacing:.08rem}
+  </style>
+</head>
+<body class="page-top">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-sigil">☯</span> HenrysTV</a>
+    <div class="nav-links">
+      <a href="/about.html">Giới thiệu</a>
+      <a href="/#pricing">Bảng giá</a>
+      <a href="/contact.html" class="active">Liên hệ</a>
+      <a href="/chinh-sach.html">Chính sách</a>
+    </div>
+    <div class="nav-auth">
+      <a href="/login.html"  class="nav-btn"               id="navLoginBtn">Đăng nhập</a>
+      <a href="/studio.html" class="nav-btn nav-btn-primary" id="navStudioBtn" style="display:none">Studio →</a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="toggleMobileNav()">☰</button>
+  </div>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <a href="/about.html">Giới thiệu</a>
+    <a href="/#pricing">Bảng giá</a>
+    <a href="/contact.html">Liên hệ</a>
+    <a href="/chinh-sach.html">Chính sách</a>
+    <a href="/login.html">Đăng nhập</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-sigil">☯</div>
+  <h1>Liên hệ</h1>
+  <p>Có câu hỏi về gói dịch vụ, góp ý tính năng, hoặc muốn hợp tác? Chúng tôi sẵn sàng lắng nghe.</p>
+</div>
+
+<section class="section">
+  <div class="contact-layout">
+
+    <!-- FORM -->
+    <div>
+      <div class="contact-form-box">
+        <h2>▸ Gửi tin nhắn</h2>
+
+        <div class="form-field">
+          <label>Tên của bạn</label>
+          <input type="text" id="cName" placeholder="Nguyễn Văn A" />
+        </div>
+        <div class="form-field">
+          <label>Email</label>
+          <input type="email" id="cEmail" placeholder="your@email.com" />
+        </div>
+        <div class="form-field">
+          <label>Chủ đề</label>
+          <select id="cSubject">
+            <option value="">Chọn chủ đề…</option>
+            <option value="goi">Kích hoạt / nâng cấp gói</option>
+            <option value="gopy">Góp ý tính năng</option>
+            <option value="bug">Báo lỗi</option>
+            <option value="hopdong">Hợp tác / đối tác</option>
+            <option value="khac">Khác</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Nội dung</label>
+          <textarea id="cMessage" rows="5" placeholder="Nội dung tin nhắn của bạn…" style="resize:vertical"></textarea>
+        </div>
+
+        <div class="form-msg" id="formMsg"></div>
+        <button class="submit-btn" id="btnSubmit" onclick="submitContact()">✦ &nbsp;Gửi tin nhắn</button>
+      </div>
+    </div>
+
+    <!-- INFO -->
+    <div>
+      <div class="contact-info">
+        <h2>▸ Thông tin liên hệ</h2>
+
+        <div class="info-item">
+          <span class="info-icon">✉</span>
+          <div>
+            <h3>Email</h3>
+            <a href="mailto:cotuongxastress@gmail.com">cotuongxastress@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span class="info-icon">⏱</span>
+          <div>
+            <h3>Thời gian phản hồi</h3>
+            <p>Trong vòng 24–48 giờ (ngày làm việc)</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span class="info-icon">💳</span>
+          <div>
+            <h3>Kích hoạt gói</h3>
+            <p>Gửi email với tiêu đề <strong style="color:var(--accent)">"Đăng ký gói [Basic/Pro]"</strong> kèm email tài khoản. Admin sẽ cấp subscription trong 12 giờ.</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <span class="info-icon">🏦</span>
+          <div>
+            <h3>Thanh toán</h3>
+            <p>Chuyển khoản ngân hàng. Thông tin tài khoản sẽ được cung cấp qua email sau khi xác nhận đăng ký.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="phil-aside">
+        <p>"Nhân vô viễn lự, tất hữu cận ưu."<br>
+        <span style="font-size:.8rem;color:var(--muted)">(Người không lo xa, tất gặp lo gần.)</span></p>
+        <cite>— Khổng Tử · Luận Ngữ</cite>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">☯ HenrysTV</div>
+      <p>Ứng dụng Minh Triết Cổ Đông<br>vào Nội dung YouTube hiện đại.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Sản phẩm</h4>
+        <a href="/studio.html">Studio</a>
+        <a href="/#pricing">Bảng giá</a>
+      </div>
+      <div class="footer-col">
+        <h4>Thông tin</h4>
+        <a href="/about.html">Giới thiệu</a>
+        <a href="/contact.html">Liên hệ</a>
+        <a href="/chinh-sach.html">Chính sách</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1080px;margin:0 auto;padding:1.2rem 1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;font-size:.75rem;color:var(--muted2)">
+    <span>© 2026 HenrysTV. All rights reserved.</span>
+    <div class="footer-sigil">☰  ☱  ☲  ☳  ☴  ☵  ☶  ☷</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="auth.js"></script>
+<script>
+async function submitContact() {
+  const name    = document.getElementById('cName').value.trim();
+  const email   = document.getElementById('cEmail').value.trim();
+  const subject = document.getElementById('cSubject').value;
+  const message = document.getElementById('cMessage').value.trim();
+  const msgEl   = document.getElementById('formMsg');
+  const btn     = document.getElementById('btnSubmit');
+
+  if (!name || !email || !message) {
+    msgEl.className = 'form-msg err';
+    msgEl.textContent = 'Vui lòng điền đầy đủ tên, email và nội dung';
+    return;
+  }
+
+  btn.disabled = true; btn.textContent = 'Đang gửi…';
+  msgEl.className = 'form-msg'; msgEl.textContent = '';
+
+  // Simple mailto fallback (replace with backend endpoint later)
+  try {
+    const body = `Tên: ${name}\nEmail: ${email}\nChủ đề: ${subject}\n\n${message}`;
+    const mailtoLink = `mailto:cotuongxastress@gmail.com?subject=HenrysTV - ${encodeURIComponent(subject||'Liên hệ')}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+    msgEl.className = 'form-msg ok';
+    msgEl.textContent = '✓ Đã mở ứng dụng email. Nếu không mở được, vui lòng gửi thẳng đến cotuongxastress@gmail.com';
+  } catch(e) {
+    msgEl.className = 'form-msg err';
+    msgEl.textContent = 'Lỗi: ' + e.message;
+  } finally {
+    btn.disabled = false; btn.textContent = '✦  Gửi tin nhắn';
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giới thiệu — HenrysTV</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .page-hero{padding:8rem 0 4rem;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(200,169,110,.07) 0%,transparent 60%);border-bottom:1px solid var(--border)}
+    .page-hero-sigil{font-size:2rem;color:var(--accent);opacity:.6;letter-spacing:.5rem;margin-bottom:1rem}
+    .page-hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:normal;color:var(--gold);letter-spacing:.08rem;margin-bottom:.8rem}
+    .page-hero p{font-size:1rem;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.8}
+    .prose{max-width:720px;margin:0 auto;padding:0 1.5rem}
+    .prose h2{font-size:1.2rem;font-weight:normal;color:var(--gold);letter-spacing:.08rem;margin:2.5rem 0 .9rem;border-left:3px solid var(--accent2);padding-left:.9rem}
+    .prose p{font-size:.95rem;color:var(--text);line-height:1.85;margin-bottom:1rem}
+    .prose em{color:var(--accent);font-style:normal}
+    .value-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0}
+    @media(max-width:580px){.value-grid{grid-template-columns:1fr}}
+    .value-card{background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:1.3rem 1.2rem}
+    .value-card .vi{font-size:1.5rem;color:var(--accent);opacity:.7;margin-bottom:.5rem}
+    .value-card h3{font-size:.85rem;font-weight:normal;color:var(--gold);letter-spacing:.06rem;margin-bottom:.4rem}
+    .value-card p{font-size:.8rem;color:var(--muted);line-height:1.65;margin:0}
+    .phil-quote-sm{background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--accent2);border-radius:0 3px 3px 0;padding:1.2rem 1.5rem;margin:1.5rem 0}
+    .phil-quote-sm p{font-size:.95rem;color:var(--text);font-style:italic;line-height:1.7;margin:0 0 .4rem}
+    .phil-quote-sm cite{font-size:.72rem;color:var(--accent);font-style:normal;letter-spacing:.08rem}
+  </style>
+</head>
+<body class="page-top">
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nav-sigil">☯</span> HenrysTV</a>
+    <div class="nav-links">
+      <a href="/about.html" class="active">Giới thiệu</a>
+      <a href="/#pricing">Bảng giá</a>
+      <a href="/contact.html">Liên hệ</a>
+      <a href="/chinh-sach.html">Chính sách</a>
+    </div>
+    <div class="nav-auth">
+      <a href="/login.html"  class="nav-btn"               id="navLoginBtn">Đăng nhập</a>
+      <a href="/studio.html" class="nav-btn nav-btn-primary" id="navStudioBtn" style="display:none">Studio →</a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="toggleMobileNav()">☰</button>
+  </div>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <a href="/about.html">Giới thiệu</a>
+    <a href="/#pricing">Bảng giá</a>
+    <a href="/contact.html">Liên hệ</a>
+    <a href="/chinh-sach.html">Chính sách</a>
+    <a href="/login.html">Đăng nhập</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-sigil">☯  易  道</div>
+  <h1>Giới thiệu HenrysTV</h1>
+  <p>Nền tảng AI ứng dụng Minh Triết Cổ Đông vào sáng tạo nội dung YouTube chuyên nghiệp</p>
+</div>
+
+<section class="section">
+  <div class="prose">
+
+    <h2>Xuất phát từ đâu?</h2>
+    <p>
+      HenrysTV ra đời từ một nhận thức đơn giản: <em>kho tàng triết học cổ đông vô cùng sâu sắc</em>,
+      nhưng lại rất khó tiếp cận với đại chúng hiện đại. Kinh Dịch, Đạo Đức Kinh, Luận Ngữ,
+      Tam Quốc Chí, Quỷ Cốc Tử — những tác phẩm này chứa đựng những bài học tâm lý, lãnh đạo
+      và nghệ thuật sống còn nguyên vẹn giá trị sau hàng nghìn năm.
+    </p>
+    <p>
+      YouTube là nơi hàng triệu người Việt đang tìm kiếm nội dung chữa lành, định hướng tâm lý,
+      và chiều sâu tư tưởng. Nhưng việc tạo ra nội dung chất lượng cao —
+      từ ý tưởng đến script hoàn chỉnh — đòi hỏi nhiều giờ nghiên cứu và viết lách.
+    </p>
+    <p>
+      <em>HenrysTV giải quyết khoảng cách đó</em>: kết hợp sức mạnh của AI (Claude Sonnet 4.6)
+      với kho tàng triết học cổ đông để tạo ra công cụ giúp creator xây dựng kênh nội dung
+      có chiều sâu, có giá trị, có sức lan tỏa.
+    </p>
+
+    <blockquote class="phil-quote-sm">
+      <p>"Học nhi bất tư tắc võng, tư nhi bất học tắc đãi."</p>
+      <cite>— Khổng Tử · Luận Ngữ</cite>
+    </blockquote>
+
+    <h2>Chúng tôi tin vào điều gì?</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="vi">易</div>
+        <h3>Triết học là nền tảng</h3>
+        <p>Nội dung sâu sắc không đến từ thuật toán — nó đến từ sự hiểu biết về bản chất con người và quy luật vũ trụ.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi">道</div>
+        <h3>AI là công cụ, không phải tác giả</h3>
+        <p>AI giúp bạn nhanh hơn, nhưng giá trị của nội dung vẫn đến từ góc nhìn và trải nghiệm của người tạo.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi">☯</div>
+        <h3>Chất lượng hơn số lượng</h3>
+        <p>Một video 20 phút có chiều sâu triết lý tạo ra giá trị lâu dài hơn 10 video nội dung rỗng.</p>
+      </div>
+      <div class="value-card">
+        <div class="vi">象</div>
+        <h3>Đi ngược đám đông</h3>
+        <p>Triết học cổ đông dạy chúng ta không sợ đi ngược xu hướng — miễn là có nền tảng vững chắc.</p>
+      </div>
+    </div>
+
+    <h2>Công cụ được xây dựng như thế nào?</h2>
+    <p>
+      HenrysTV Studio được xây dựng trên nền tảng <em>Claude Sonnet 4.6</em> của Anthropic —
+      một trong những mô hình AI ngôn ngữ tiên tiến nhất hiện nay.
+      Chúng tôi đã tổng hợp và mã hoá hơn <em>50 câu chuyện điển cố lịch sử</em>
+      từ Tam Quốc, Kinh Dịch, Thiền sư, và Quỷ Cốc Tử vào hệ thống.
+    </p>
+    <p>
+      Mỗi tính năng — từ outline kịch bản, viết script voiceover, SEO YouTube,
+      đến image prompts phong cách thủy mặc — đều được thiết kế riêng cho ngách nội dung
+      <em>"Ứng dụng Minh Triết Cổ Đông vào Tâm lý và Nghệ thuật sống"</em>.
+    </p>
+    <p>
+      Toàn bộ hệ thống chạy trên máy chủ riêng tại châu Âu,
+      dữ liệu người dùng được bảo mật bởi Supabase với mã hoá end-to-end.
+    </p>
+
+    <blockquote class="phil-quote-sm">
+      <p>"Chí đại nhi không, hữu dung nãi đại."<br>
+      <span style="font-size:.85rem">(Chí khí càng lớn, tấm lòng càng rộng mở, mới đủ sức chứa đựng điều lớn lao.)</span></p>
+      <cite>— Thiền học</cite>
+    </blockquote>
+
+    <h2>Liên hệ với chúng tôi</h2>
+    <p>
+      Có câu hỏi, góp ý, hoặc muốn hợp tác? Chúng tôi luôn sẵn sàng lắng nghe.
+    </p>
+    <div style="margin-top:1.2rem;display:flex;gap:.8rem;flex-wrap:wrap">
+      <a href="/contact.html" class="btn-primary" style="font-size:.85rem;padding:.7rem 1.8rem">Liên hệ ngay</a>
+      <a href="/login.html"   class="btn-ghost"   style="font-size:.85rem;padding:.7rem 1.5rem">Dùng thử Studio</a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">☯ HenrysTV</div>
+      <p>Ứng dụng Minh Triết Cổ Đông<br>vào Nội dung YouTube hiện đại.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Sản phẩm</h4>
+        <a href="/studio.html">Studio</a>
+        <a href="/#pricing">Bảng giá</a>
+      </div>
+      <div class="footer-col">
+        <h4>Thông tin</h4>
+        <a href="/about.html">Giới thiệu</a>
+        <a href="/contact.html">Liên hệ</a>
+        <a href="/chinh-sach.html">Chính sách</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1080px;margin:0 auto;padding:1.2rem 1.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem;font-size:.75rem;color:var(--muted2)">
+    <span>© 2026 HenrysTV. All rights reserved.</span>
+    <div class="footer-sigil">☰  ☱  ☲  ☳  ☴  ☵  ☶  ☷</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="auth.js"></script>
+</body>
+</html>

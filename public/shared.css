@@ -1,0 +1,320 @@
+/* ═══════════════════════════════════════════════
+   HenrysTV — Shared Design System
+   Giao diện Cổ Xưa · Ancient Eastern Aesthetic
+═══════════════════════════════════════════════ */
+
+:root {
+  --bg:      #080810;
+  --bg2:     #0d0d18;
+  --surface: #111120;
+  --surface2:#1a1a2e;
+  --surface3:#222238;
+  --border:  #2c2c44;
+  --border2: #3a3a58;
+  --accent:  #c8a96e;
+  --accent2: #8b6e45;
+  --gold:    #e8c97a;
+  --gold2:   #f5dfa0;
+  --text:    #e2ddd6;
+  --muted:   #7a7570;
+  --muted2:  #5a5560;
+  --red:     #c85050;
+  --green:   #7db855;
+  --ink:     #b0a898;
+  --r: 6px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--gold); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* ─────────────────────────────────────────────
+   NAVIGATION
+───────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  background: rgba(8,8,16,.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav::after {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent2), transparent);
+  opacity: .4;
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: .7rem 1.5rem;
+  display: flex; align-items: center; gap: 1.2rem;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: .5rem;
+  color: var(--gold) !important;
+  font-size: 1rem; letter-spacing: .12rem;
+  font-style: normal; font-weight: normal;
+  white-space: nowrap;
+}
+.nav-logo .nav-sigil {
+  font-size: 1.2rem; color: var(--accent); opacity: .85;
+}
+.nav-links {
+  display: flex; gap: 1.5rem; flex: 1;
+  margin-left: .8rem;
+}
+.nav-links a {
+  font-size: .82rem; letter-spacing: .08rem;
+  color: var(--muted); transition: color .2s;
+  text-transform: uppercase;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a.active { color: var(--gold); }
+.nav-auth { display: flex; gap: .6rem; align-items: center; }
+.nav-btn {
+  font-size: .78rem; letter-spacing: .1rem; text-transform: uppercase;
+  padding: .3rem .9rem; border-radius: 2px;
+  border: 1px solid var(--border2); color: var(--muted);
+  transition: all .2s; white-space: nowrap;
+}
+.nav-btn:hover { border-color: var(--accent2); color: var(--accent) !important; }
+.nav-btn-primary {
+  border-color: var(--accent); color: var(--gold) !important;
+}
+.nav-btn-primary:hover { background: rgba(200,169,110,.1); }
+
+/* Mobile nav */
+.nav-mobile-toggle {
+  display: none; background: transparent; border: none;
+  color: var(--muted); font-size: 1.2rem; cursor: pointer;
+  padding: .2rem .4rem; margin-left: auto;
+}
+.nav-mobile-menu {
+  display: none; background: var(--surface); border-top: 1px solid var(--border);
+  padding: 1rem 1.5rem; flex-direction: column; gap: .8rem;
+}
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-menu a { color: var(--muted); font-size: .85rem; letter-spacing: .05rem; padding: .3rem 0; }
+.nav-mobile-menu a:hover { color: var(--accent); }
+
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: block; }
+  .nav-auth .nav-btn { font-size: .72rem; padding: .25rem .65rem; }
+}
+
+/* ─────────────────────────────────────────────
+   PAGE WRAPPER
+───────────────────────────────────────────── */
+.page-top { padding-top: 56px; }
+
+/* ─────────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────────── */
+.btn-primary {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--gold);
+  padding: .85rem 2.2rem;
+  font-family: inherit; font-size: .95rem;
+  letter-spacing: .2rem; text-transform: uppercase;
+  cursor: pointer; border-radius: 2px;
+  transition: all .25s;
+}
+.btn-primary:hover {
+  background: rgba(200,169,110,.12);
+  box-shadow: 0 0 24px rgba(200,169,110,.15);
+  color: var(--gold2) !important;
+}
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--muted); padding: .85rem 2rem;
+  font-family: inherit; font-size: .9rem;
+  letter-spacing: .12rem; text-transform: uppercase;
+  cursor: pointer; border-radius: 2px; transition: all .25s;
+}
+.btn-ghost:hover { border-color: var(--accent2); color: var(--accent) !important; }
+
+/* ─────────────────────────────────────────────
+   SECTIONS
+───────────────────────────────────────────── */
+.section { padding: 5rem 0; }
+.section-alt { background: var(--bg2); }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+.section-label {
+  font-size: .68rem; letter-spacing: .25rem; text-transform: uppercase;
+  color: var(--accent); margin-bottom: .6rem;
+  display: flex; align-items: center; gap: .7rem;
+}
+.section-label::before, .section-label::after {
+  content: ''; flex: none; width: 24px; height: 1px; background: var(--accent2); opacity: .6;
+}
+.section-label::before { display: none; }
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: normal;
+  color: var(--gold); letter-spacing: .06rem; margin-bottom: 2.5rem;
+  line-height: 1.35;
+}
+
+/* ─────────────────────────────────────────────
+   FORMS
+───────────────────────────────────────────── */
+.form-field { margin-bottom: 1rem; }
+.form-field label {
+  display: block; font-size: .68rem; letter-spacing: .12rem;
+  text-transform: uppercase; color: var(--muted); margin-bottom: .35rem;
+}
+.form-field input, .form-field textarea, .form-field select {
+  width: 100%; background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text); padding: .7rem .95rem;
+  font-family: inherit; font-size: .95rem; border-radius: 2px;
+  outline: none; transition: border-color .2s;
+}
+.form-field input:focus, .form-field textarea:focus, .form-field select:focus {
+  border-color: var(--accent2);
+}
+.form-field input::placeholder, .form-field textarea::placeholder {
+  color: var(--muted2); font-style: italic;
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+.footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 0;
+}
+.footer::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent2) 30%, var(--accent) 50%, var(--accent2) 70%, transparent 100%);
+  margin-bottom: 3rem;
+  opacity: .5;
+}
+.footer-inner {
+  max-width: 1080px; margin: 0 auto; padding: 0 1.5rem;
+  display: grid; grid-template-columns: 1.4fr 1fr;
+  gap: 3rem; margin-bottom: 3rem;
+}
+@media (max-width: 640px) { .footer-inner { grid-template-columns: 1fr; } }
+
+.footer-brand .footer-logo {
+  font-size: 1.1rem; color: var(--gold); letter-spacing: .15rem;
+  margin-bottom: .7rem;
+}
+.footer-brand p { font-size: .82rem; color: var(--muted); line-height: 1.7; }
+.footer-links { display: flex; gap: 2rem; }
+.footer-col h4 {
+  font-size: .65rem; letter-spacing: .2rem; text-transform: uppercase;
+  color: var(--accent); margin-bottom: .9rem; font-weight: normal;
+}
+.footer-col { display: flex; flex-direction: column; gap: .5rem; }
+.footer-col a { font-size: .82rem; color: var(--muted); transition: color .2s; }
+.footer-col a:hover { color: var(--accent); }
+
+.footer-bottom {
+  border-top: 1px solid var(--border); padding: 1.2rem 1.5rem;
+  max-width: 1080px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: .8rem;
+  font-size: .75rem; color: var(--muted2);
+}
+.footer-sigil {
+  letter-spacing: .3rem; color: var(--accent2); opacity: .5; font-size: .8rem;
+}
+
+/* ─────────────────────────────────────────────
+   DECORATIVE
+───────────────────────────────────────────── */
+.divider-ornate {
+  display: flex; align-items: center; gap: 1rem;
+  margin: 2rem 0; color: var(--accent2); opacity: .5;
+  font-size: .8rem; letter-spacing: .3rem;
+}
+.divider-ornate::before, .divider-ornate::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
+/* Ink brush horizontal rule */
+hr.ink { border: none; border-top: 1px solid var(--border); margin: 2rem 0; opacity: .6; }
+
+/* Glow text */
+.glow-gold { color: var(--gold); text-shadow: 0 0 30px rgba(232,201,122,.25); }
+
+/* ─────────────────────────────────────────────
+   UTILITIES
+───────────────────────────────────────────── */
+.text-center { text-align: center; }
+.text-muted   { color: var(--muted); }
+.text-gold    { color: var(--gold); }
+.text-accent  { color: var(--accent); }
+.mt-1  { margin-top: .5rem; }
+.mt-2  { margin-top: 1rem; }
+.mt-3  { margin-top: 1.5rem; }
+.mt-4  { margin-top: 2rem; }
+.fade-in { animation: fadeInUp .6s ease both; }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────────
+   SCROLL-TO-TOP BUTTON
+───────────────────────────────────────────── */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 1.8rem;
+  right: 1.8rem;
+  width: 40px; height: 40px;
+  background: var(--surface2);
+  border: 1px solid var(--accent2);
+  color: var(--accent);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .3s ease, transform .3s ease, background .2s, border-color .2s, color .2s;
+  z-index: 800;
+  pointer-events: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,.4);
+}
+#scrollTopBtn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scrollTopBtn:hover {
+  background: rgba(200,169,110,.14);
+  border-color: var(--accent);
+  color: var(--gold);
+}
+/* Studio has the library FAB at bottom-right — push scroll btn above it */
+.has-lib-fab #scrollTopBtn {
+  bottom: 5.2rem;
+}
